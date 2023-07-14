@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK TIME</title>
+    <style>
+        body {
+            font-size: 320px;
+            text-align: center;
+            background: #051a2a;
+            color: #0d0ae7;
+        }
+        #clock{
+            margin-top: 150px;
+        }
+
+        #min:hover,
+        #sec:hover {
+            border: 12px solid ;
+            border-radius: 81px;
+            border-right-style: none;
+            border-left-style: none;
+            color: #7c15e2;
+            box-shadow: 46px 0px 3px;
+        }
+    </style>
+</head>
+
+<body onload="clickfunction()">
+    <div id="clock">
+        <span id="min">60</span>
+        <span> : </span>
+        <span id="sec">60</span>
+    </div>
+    <script>
+        var min = 60;
+        var sec = 60;
+        count = 0;
+
+        function clickfunction() {
+
+            count = count + 1;
+            if (count == 100) {
+                sec = sec - 1;
+                count = 0;
+
+            }
+            if (sec == 0) {
+                min = min - 1;
+                sec = 60;
+                count = 0;
+            }
+            var minn = min;
+            var sece = sec;
+            if (min < 10) {
+                minn = "0" + min;
+            }
+            if (sec < 10) {
+                sece = "0" + sec;
+            }
+            document.getElementById("min").innerHTML = minn;
+            document.getElementById("sec").innerHTML = sece;
+
+            setTimeout("clickfunction()", 1);
+        }
+    </script>
+</body>
+
+</html>
